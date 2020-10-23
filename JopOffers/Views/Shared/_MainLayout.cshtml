@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <!--Start-Header-->
+    <div class="header" style="margin-bottom:150px">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="~/Home" class="navbar-brand" style="padding:0px">
+                        <img src="~/images/images (1).jpg" style="width:50px; height:50px;border-radius:50%" />
+                    </a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav list-unstyled">
+                        <li>
+                            <a href="~/Home">
+                                <i class="glyphicon glyphicon-home"></i>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/Home/About">
+                                <i class="glyphicon glyphicon-globe"></i>
+                                About
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/Home/Contact">
+                                <i class="glyphicon glyphicon-earphone"></i>
+                                Contact us
+                            </a>
+                        </li>
+                        <li >
+                                @using (Html.BeginForm("Search", "Home", FormMethod.Post))
+                                {
+                                    <input type="text" name="searchName" id="searchName"
+                                           placeholder="Search Here..." />
+                                }
+                                                           
+                        </li>
+                    </ul>
+
+
+                    <!--Partial Login-->
+                    @Html.Partial("_Login")
+                </div>
+            </div>
+        </nav>
+    </div>
+        
+     <!--End-Header-->
+   
+    <div class="container">
+        <div class="row" style="min-height:550px">
+            @RenderBody()
+        </div>
+        
+    </div>
+        
+   
+    
+    <!--Start-Footer-->
+    <div class="footer" style="margin-top:100px;background-color:#f8f8f8">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-lg-4">
+                        <h3>
+                            What about us?
+                        </h3>
+                        <p>
+                            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that enables a clean separation of concerns and gives you full control over markup for enjoyable, agile development.
+                        </p>
+                    </div>
+                    <div class="col-lg-4">
+                        <h3>
+                            Important Links
+                        </h3>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Jobs For all peoble</a></li>
+                            <li><a href="#">Jobs For all peoble</a></li>
+                            <li><a href="#">Jobs For all peoble</a></li>
+                            <li><a href="#">Jobs For all peoble</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <h3>
+                            Contact Us
+                        </h3>
+                        <ul class="list-unstyled col-lg-3">
+                            <li><a href="#">Google</a></li>
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">Youtube</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div style="background-color:#f8f8f8">
+                <p style="padding:0px; margin:0px ; font-size:25px; text-align:center;border-top-width:1px;border-top-color:red;border-top-style:solid">The copy Right</p>
+            </div>
+    </div>
+    <!--End-Footer-->
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

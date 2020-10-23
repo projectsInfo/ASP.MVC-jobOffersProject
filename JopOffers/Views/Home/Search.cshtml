@@ -1,0 +1,22 @@
+﻿@model IEnumerable<JopOffers.Models.Job>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+    <div class="panel panel-default" style="padding:15px">
+        <h1 class="panel-heading">Your Search</h1>
+
+        <div class="row">
+            @foreach (var submItem in Model)
+            {
+                <div class="col-md-3 thumbnail" style="margin-left:20px; margin-bottom:30px">
+                    <img src="~/Uploads/@submItem.jobImage" style="height:200px; width:100%" />
+                    <h3>@Html.DisplayFor(modelItem => submItem.JobTitle)</h3>
+                    <h5>@Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(modelItem => submItem.JobContent).ToString()))</h5>
+                    @Html.ActionLink("Details", "Details", new { jobId = submItem.Id }, new { @class = "btn btn-primary" })
+                </div>
+            }
+         </div>
+    </div>
+
